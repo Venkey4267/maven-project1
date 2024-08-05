@@ -1,0 +1,248 @@
+https://docs.google.com/document/d/1EYp2DUmZLgNHewDo7ujZawqx7psr6ezW8NVzAK-8nRc/edit?pli=1#heading=h.6tdpi5l73rpr
+
+1.  What is kernel? 
+Interface between hardware and and software.
+ Hardware-  CPU, Memory and Hard disk
+ Kernel - it is a program that is stored inside the operating system.
+        It takes the command from shell and 
+
+
+
+
+2. What is a shell? 
+         A shell is a type of computer program called a command-line interpreter that lets Linux and Unix users control their operating systems with command-line interfaces.
+    > It is like a container 
+    > Interface b/w user and kernel/OS
+    > CLI is a shell (Command line interface)
+
+
+SheBang (#!)
+
+     To find shell 
+ # echo $0
+Available shells “cat /etc/shells”
+Your shell? /etc/passwd
+
+   Windows GUI is a shell
+   Linux KDE GUI is a shell
+   Linux sh, bash etc. is a shell
+
+3. What is Shell Scripting?
+    Put all instructions in a shell or container and run it. 
+     A shell script is a list of commands in a computer program that is run by the Unix shell which is a command line interpreter. 
+A shell script usually has comments that describe the steps. The different operations performed by shell scripts are program execution, file manipulation and text printing. A wrapper is also a kind of shell script that creates the program environment, runs the program etc.
+
+A shell script in Linux is a text file containing a sequence of commands written in a scripting language interpreted by the shell. 
+The shell acts as an interface between the user and the operating system, interpreting commands entered by the user or read from a script file. 
+The GNU Bourne-Again Shell also known as bash is the default shell for most of the Linux distributions. It commonly runs in its interactive form which is the Command Line Interface (CLI).
+
+Type of Linux Shells
+  > Gnome - it is like a graphical environment in linux. 
+  > KDE - 
+  > sh - shell
+  > bash
+  > csh (C shell) & tcsh ()
+  > ksh (Korn shell)
+
+To find the list of shells
+  #cat /etc/shells
+
+To login into shell 
+  # sh or csh or ksh or or bash
+
+How to run shell script
+Absolute path - Pull path
+Relative path - ./<script name>
+
+4. Script Naming Conventions : 
+  > Create a Scripts directory 
+  > Script name should be identify function
+  > Script should be end with .shell, .bach, .csh
+
+5. Script file Permissions:
+     
+      Eg:  rwxr - xr -  x
+                 1    2     3
+User permissions                             r - read
+Group permissions                           w - write
+Other group permissions                  x - execute 
+
+To change the permissions 
+   #chmod a+x <script name>                     a - all,   u - user,   g - group,   o - others
+
+6. Script Format
+  
+Define shell (#!/bin/bash)
+Comments (# comments)
+Define variables (e.g name=Ram)
+Commands (echo, cp, grep etc.)
+Statements (if, while, for etc.)
+
+7. Input/output Script :
+
+  To read the input which is given from end user
+   # read <variable>
+   Eg: #!bin/bash
+         echo enter your name
+         read name
+         echo $name
+
+
+    Eg: #!bin/bash
+          a= `hostname` 
+          echo IP address is $a
+          read b
+          echo $b
+ Read User Input With Prompt Message
+#!/bin/bash
+read -p "Enter a number:" num
+echo “The number is: $num”
+
+8. If else statements:
+  
+if [ condition ]
+then
+	statement
+fi
+
+
+#! /bin/sh
+a=5
+b=30
+
+if [ $a -lt $b ]
+then
+        echo "a is less than b"
+fi
+
+if [ condition ]
+then
+	statement
+else
+	do this by default
+fi
+
+#! /bin/sh
+a=99
+b=45
+
+if [ $a -lt $b ]                  ==>  lt= less than
+then
+        echo "a is less than b"
+else
+        echo "a is greater than b"
+fi
+      If..elif..else
+
+if [ condition ]
+then
+	statement
+elif [ condition ] 
+then
+	statement 
+else
+	do this by default
+fi
+
+read a
+read b
+read c
+
+if [ $a == $b -a $b == $c -a $a == $c ]
+then
+echo EQUILATERAL
+
+elif [ $a == $b -o $b == $c -o $a == $c ]
+then
+echo ISOSCELES
+else
+echo SCALENE
+
+fi
+
+9. Case statements:
+
+  Syntax: 
+case $variable in                                             
+pattern-1)
+  commands;;
+pattern-2)
+  commands;;
+pattern-3)
+  commands;;
+pattern-N)
+  commands;;
+*)
+  commands;;
+esac
+
+Eg: 
+
+#!/bin/bash
+echo "Which color do you like best?"
+echo "1 - Blue"
+echo "2 - Red"
+echo "3 - Yellow"
+echo "4 - Green"
+echo "5 - Orange"
+read color;
+case $color in
+  1) echo "Blue is a primary color.";;
+  2) echo "Red is a primary color.";;
+  3) echo "Yellow is a primary color.";;
+  4) echo "Green is a secondary color.";;
+  5) echo "Orange is a secondary color.";;
+  *) echo "This color is not available. Please choose a different one.";;
+esac
+
+10. For loop:  
+
+Syntax: 
+1.
+#!/bin/bash
+# For loop with individual numbers
+for i in 0 1 2 3 4 5
+do
+   echo "Element $i"
+done
+
+#!/bin/bash
+# For loop with individual strings
+for i in "zero" "one" "two" "three" "four" "five"
+do
+   echo "Element $i"
+done 
+
+2.
+#!/bin/bash
+# For loop C-style
+for (( i=0; i<=5; i++ ))
+do
+   echo "Element $i"
+done
+
+11. Do while Loop:
+ #!/bin/bash
+num=1
+while (( num <= 5 ))
+do
+ echo "Number: $num"
+ (( num++ ))
+done 
+12. Accessing Data from a file
+
+Concatenating Multiple Variables
+To concatenate multiple variables and store them into a single variable, enclose them with a double quotation (“ ”) and then write the variables within {} consecutively. Here is an example:
+
+#!/bin/bash
+# Declaration of variables
+name='My name is Tom.'
+age='My age is 12.'
+
+# Concatenation
+info="${name} ${age}"
+echo "Result: $info"
+
+
+100 shell script examples
+https://linuxsimply.com/100-shell-script-examples/
